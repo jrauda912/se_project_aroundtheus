@@ -1,0 +1,63 @@
+.profile {
+  display: flex;
+  max-width: 880px;
+  max-height: 120px;
+  padding-top: 40px;
+}
+
+.profile__picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  /* padding-right: 30px; */
+}
+
+.profile__info {
+  display: grid;
+  max-width: 415px;
+  max-height: 77px;
+  grid-template-areas:
+    "username button"
+    "description description";
+  grid-template-columns: minmax(auto, 375px) auto;
+  padding-top: 22px;
+  padding-left: 30px;
+  gap: 7px 18px;
+}
+
+.profile__info_username {
+  width: 375px;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 1.14;
+  grid-area: username;
+  margin: 0;
+}
+
+.profile__edit-button {
+  width: 24px;
+  height: 24px;
+  background: transparent url(../images/edit.svg) center no-repeat;
+  align-self: center;
+  border: 1px solid #fff;
+  grid-area: button;
+}
+
+.profile__info_description {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  grid-area: description;
+  margin: 0;
+}
+
+.profile__add-button {
+  width: 150px;
+  height: 50px;
+  background: transparent url(../images/add.svg) center no-repeat;
+  align-self: center;
+  border: 2px solid #fff;
+  margin-left: auto;
+}

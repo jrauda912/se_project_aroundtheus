@@ -1,0 +1,12 @@
+.header {
+  max-width: 880px;
+  max-height: 74px;
+  margin-top: 40px;
+  border-bottom: 1px outset #545454;
+}
+
+.header__logo {
+  padding-bottom: 45px;
+  max-width: 173px;
+  max-height: 33px;
+}
