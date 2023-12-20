@@ -23,6 +23,10 @@
 
 .card__text {
   margin: 0;
+  max-width: 219px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card__like-button {

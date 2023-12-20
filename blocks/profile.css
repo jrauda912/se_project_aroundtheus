@@ -34,6 +34,9 @@
   grid-area: username;
   /* padding-right: 14px; */
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__edit-button {
@@ -46,6 +49,10 @@
 }
 
 .profile__info_description {
+  max-width: 415px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -61,4 +68,74 @@
   align-self: center;
   border: 2px solid #fff;
   margin-left: auto;
+}
+
+@media screen and (min-width: 583px) and (max-width: 880px) {
+  .profile {
+    max-width: 68.75%;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    max-height: fit-content;
+  }
+
+  .profile__info {
+    padding: 30px 0 0;
+    gap: 10px 14px;
+  }
+
+  .profile__info_description {
+    text-align: center;
+  }
+
+  .profile__add-button {
+    margin: 36px 0 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 582px) {
+  .profile {
+    max-width: 88.12%;
+    max-height: 286px;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    max-height: fit-content;
+  }
+
+  .profile__info {
+    max-width: 282px;
+    max-height: 286px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px 0 0;
+  }
+
+  .profile__info_username {
+    max-width: 94.3%;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.21;
+    padding: ;
+  }
+
+  .profile__info_description {
+    max-width: 88.12%;
+    font-size: 14px;
+    line-height: 1.21;
+    text-align: center;
+  }
+
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+  }
+
+  .profile__add-button {
+    max-width: 282px;
+    width: 100%;
+    margin: 36px 0 0;
+  }
 }
