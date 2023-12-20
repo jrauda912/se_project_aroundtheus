@@ -1,7 +1,6 @@
 .card {
   display: flex;
   flex-direction: column;
-  /* border-radius: 5%; */
 }
 
 .card__image {
@@ -33,7 +32,10 @@
   width: 21px;
   height: 18px;
   background: transparent url(../images/Like.svg) center no-repeat;
-  /* align-self: center; */
   border: none;
-  /* margin-left: auto; */
+  transition: opacity 0.2s;
+}
+
+.card__like-button:hover {
+  opacity: 50%;
 }
