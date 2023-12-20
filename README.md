@@ -15,4 +15,4 @@ This project took 3-4 days to complete, and it was my first opportunity working 
 - Gitbash
 - Inspect Element
 
-You can find my project on (https://github.com/jrauda912/se_project_aroundtheus "Github!")
+You can find my project on [Github!](https://github.com/jrauda912/se_project_aroundtheus)
