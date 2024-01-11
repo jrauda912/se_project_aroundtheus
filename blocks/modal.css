@@ -7,9 +7,9 @@
   z-index: 3;
 }
 
-.modal__opened {
+/* .modal__opened {
   display: flex;
-}
+} */
 
 .modal__container {
   position: relative;
