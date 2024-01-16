@@ -139,7 +139,7 @@
         <p class="footer__copyright">© 2022 Around The U.S.</p>
       </footer>
     </div>
-    <div class="modal">
+    <div class="modal modal__profile">
       <div class="modal__container">
         <button class="modal__close-button" type="button" aria-label></button>
         <div>
@@ -150,10 +150,9 @@
                 <input
                   type="text"
                   name="username"
-                  class="modal__input"
+                  class="modal__input modal__input_type_name"
                   id="name"
                   placeholder="Name"
-                  value="Jacques Cousteau"
                   required
                 />
               </label>
@@ -161,13 +160,12 @@
                 <input
                   type="text"
                   name="description"
-                  class="modal__input"
+                  class="modal__input modal__input_type_description"
                   id="description"
-                  value="Explorer"
                   placeholder="Description"
                 />
               </label>
-              <button class="modal__save-button" type="button" aria-label>
+              <button class="modal__save-button" type="submit" aria-label>
                 Save
               </button>
             </fieldset>

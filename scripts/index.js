@@ -30,8 +30,27 @@ const closeModalButton = document.querySelector(".modal__close-button");
 const modal = document.querySelector(".modal");
 
 function toggleModal() {
+  inputName.value = profileName.textContent;
+  inputDescription.value = profileDescription.textContent;
   modal.classList.toggle("opened");
 }
 
 editButton.addEventListener("click", toggleModal);
 closeModalButton.addEventListener("click", toggleModal);
+
+const profileModal = document.querySelector(".modal__form");
+const profileName = document.querySelector(".profile__username");
+const profileDescription = document.querySelector(".profile__description");
+const inputName = document.querySelector(".modal__input_type_name");
+const inputDescription = document.querySelector(
+  ".modal__input_type_description"
+);
+
+function handleProfileModalSubmit(EventTarget) {
+  EventTarget.preventDefault();
+  profileName.textContent = inputName.value;
+  profileDescription.textContent = inputDescription.value;
+  modal.classList.toggle("opened");
+}
+
+profileModal.addEventListener("submit", handleProfileModalSubmit);
