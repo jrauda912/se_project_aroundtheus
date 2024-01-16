@@ -38,6 +38,8 @@ const inputName = document.querySelector(".modal__input_type_name");
 const inputDescription = document.querySelector(
   ".modal__input_type_description"
 );
+const cardTemplate = document.querySelector("#card-template").content;
+const cardGallery = document.querySelector(".gallery__cards");
 
 /* --------------------------------------------------------------------------------------------- */
 /*                                      Functions                                                */
@@ -56,6 +58,16 @@ function handleProfileModalSubmit(EventTarget) {
   modal.classList.toggle("opened");
 }
 
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageElement = cardElement.querySelector(".card__image");
+  const cardTextElement = cardElement.querySelector(".card__text");
+  cardImageElement.src = data.link;
+  cardTextElement.alt = data.name;
+  cardTextElement.textContent = data.name;
+  return cardElement;
+}
+
 /* --------------------------------------------------------------------------------------------- */
 /*                                    Event Listeners                                            */
 /* --------------------------------------------------------------------------------------------- */
@@ -65,3 +77,8 @@ editButton.addEventListener("click", toggleModal);
 closeModalButton.addEventListener("click", toggleModal);
 
 modal.addEventListener("submit", handleProfileModalSubmit);
+
+initialCards.forEach((data) => {
+  const cardElement = getCardElement(data);
+  cardGallery.append(cardElement);
+});
