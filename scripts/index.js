@@ -28,6 +28,12 @@ let initialCards = [
 const editButton = document.querySelector(".profile__edit-button");
 const closeModalButton = document.querySelector(".modal__close-button");
 const modal = document.querySelector(".modal");
+const profileName = document.querySelector(".profile__username");
+const profileDescription = document.querySelector(".profile__description");
+const inputName = document.querySelector(".modal__input_type_name");
+const inputDescription = document.querySelector(
+  ".modal__input_type_description"
+);
 
 function toggleModal() {
   inputName.value = profileName.textContent;
@@ -38,14 +44,6 @@ function toggleModal() {
 editButton.addEventListener("click", toggleModal);
 closeModalButton.addEventListener("click", toggleModal);
 
-const profileModal = document.querySelector(".modal__form");
-const profileName = document.querySelector(".profile__username");
-const profileDescription = document.querySelector(".profile__description");
-const inputName = document.querySelector(".modal__input_type_name");
-const inputDescription = document.querySelector(
-  ".modal__input_type_description"
-);
-
 function handleProfileModalSubmit(EventTarget) {
   EventTarget.preventDefault();
   profileName.textContent = inputName.value;
@@ -53,4 +51,4 @@ function handleProfileModalSubmit(EventTarget) {
   modal.classList.toggle("opened");
 }
 
-profileModal.addEventListener("submit", handleProfileModalSubmit);
+modal.addEventListener("submit", handleProfileModalSubmit);
