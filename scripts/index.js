@@ -1,4 +1,4 @@
-let initialCards = [
+const initialCards = [
   {
     name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
@@ -32,6 +32,7 @@ let initialCards = [
 const editButton = document.querySelector(".profile__edit-button");
 const closeModalButton = document.querySelector(".modal__close-button");
 const modal = document.querySelector(".modal");
+const profileForm = document.forms["profile-form"];
 const profileName = document.querySelector(".profile__username");
 const profileDescription = document.querySelector(".profile__description");
 const inputName = document.querySelector(".modal__input_type_name");
@@ -46,16 +47,20 @@ const cardGallery = document.querySelector(".gallery__cards");
 /* --------------------------------------------------------------------------------------------- */
 
 function toggleModal() {
-  inputName.value = profileName.textContent;
-  inputDescription.value = profileDescription.textContent;
-  modal.classList.toggle("opened");
+  modal.classList.toggle("modal_opened");
 }
 
-function handleProfileModalSubmit(EventTarget) {
-  EventTarget.preventDefault();
+function openProfileModal() {
+  inputName.value = profileName.textContent;
+  inputDescription.value = profileDescription.textContent;
+  toggleModal();
+}
+
+function handleProfileModalSubmit(Event) {
+  Event.preventDefault();
   profileName.textContent = inputName.value;
   profileDescription.textContent = inputDescription.value;
-  modal.classList.toggle("opened");
+  toggleModal();
 }
 
 function getCardElement(data) {
@@ -63,7 +68,7 @@ function getCardElement(data) {
   const cardImageElement = cardElement.querySelector(".card__image");
   const cardTextElement = cardElement.querySelector(".card__text");
   cardImageElement.src = data.link;
-  cardTextElement.alt = data.name;
+  cardImageElement.alt = data.name;
   cardTextElement.textContent = data.name;
   return cardElement;
 }
@@ -72,11 +77,11 @@ function getCardElement(data) {
 /*                                    Event Listeners                                            */
 /* --------------------------------------------------------------------------------------------- */
 
-editButton.addEventListener("click", toggleModal);
+editButton.addEventListener("click", openProfileModal);
 
 closeModalButton.addEventListener("click", toggleModal);
 
-modal.addEventListener("submit", handleProfileModalSubmit);
+profileForm.addEventListener("submit", handleProfileModalSubmit);
 
 initialCards.forEach((data) => {
   const cardElement = getCardElement(data);
