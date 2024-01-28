@@ -107,7 +107,6 @@ cardLikeButtons.forEach((likeButton) => {
     likeButton
       .closest(".card__like-button")
       .classList.toggle("card__like-button_clicked");
-    console.log("button clicked!");
   });
 });
 
