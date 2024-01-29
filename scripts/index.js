@@ -72,6 +72,8 @@ function toggleProfileModal() {
 }
 
 function toggleAddModal() {
+  inputCardTitle.value = "";
+  inputCardLink.value = "";
   modalAddCard.classList.toggle("modal_opened");
 }
 
@@ -101,6 +103,18 @@ function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageElement = cardElement.querySelector(".card__image");
   const cardTextElement = cardElement.querySelector(".card__text");
+  const likeButton = cardElement.querySelector(".card__like-button");
+
+  //find delete button
+  //add event listener to delete button
+  // element.remove();
+
+  //add click listener to cardImageElement
+  //open modal w/ previewImageModal -stored outside of function-
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-button_clicked");
+  });
 
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name;
@@ -124,16 +138,6 @@ addCardForm.addEventListener("submit", handleAddCardModalSubmit);
 
 initialCards.forEach((data) => {
   renderCard(data, cardGallery);
-});
-
-const cardLikeButtons = document.querySelectorAll(".card__like-button");
-
-cardLikeButtons.forEach((likeButton) => {
-  likeButton.addEventListener("click", () => {
-    likeButton
-      .closest(".card__like-button")
-      .classList.toggle("card__like-button_clicked");
-  });
 });
 
 closeModalButton.forEach(function (button) {
