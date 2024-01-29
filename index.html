@@ -117,8 +117,18 @@
         </div>
       </div>
     </div>
+    <div class="modal" id="modal-image-viewer">
+      <div class="modal__image-viewer__container">
+        <button class="modal__close-button" type="button" aria-label></button>
+        <img src="" alt="" class="modal__image" />
+        <p class="modal__subtitle"></p>
+      </div>
+    </div>
     <template id="card-template"
       ><li class="card">
+        <span class="card__span"
+          ><button class="card__delete-button" type="button" aria-label></button
+        ></span>
         <img src="" alt="" class="card__image" />
         <div class="card__description">
           <h2 class="card__text"></h2>

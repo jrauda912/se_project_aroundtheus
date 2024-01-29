@@ -42,6 +42,7 @@ const addCardForm = document.forms["add-form"];
 const modals = document.querySelectorAll(".modal");
 const modalAddCard = document.querySelector("#modal-add");
 const modalProfile = document.querySelector("#modal-profile");
+const modalImagePreview = document.querySelector("#modal-image-viewer");
 
 //Profile Inputs
 const profileName = document.querySelector(".profile__username");
@@ -57,8 +58,14 @@ const addCardLink = document.querySelector(".card__image");
 const inputCardTitle = document.querySelector(".modal__input_type_title");
 const inputCardLink = document.querySelector(".modal__input_type_link");
 
+//Image inputs
+const modalImage = document.querySelector(".modal__image");
+const modalSubtitle = document.querySelector(".modal__subtitle");
+
 //Card data
-const cardTemplate = document.querySelector("#card-template").content;
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
 const cardGallery = document.querySelector(".gallery__cards");
 
 /* --------------------------------------------------------------------------------------------- */
@@ -75,6 +82,10 @@ function toggleAddModal() {
   inputCardTitle.value = "";
   inputCardLink.value = "";
   modalAddCard.classList.toggle("modal_opened");
+}
+
+function toggleImagePreviewModal() {
+  modalImagePreview.classList.toggle("modal_opened");
 }
 
 function renderCard(data, gallery) {
@@ -104,13 +115,19 @@ function getCardElement(data) {
   const cardImageElement = cardElement.querySelector(".card__image");
   const cardTextElement = cardElement.querySelector(".card__text");
   const likeButton = cardElement.querySelector(".card__like-button");
+  const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  //find delete button
-  //add event listener to delete button
-  // element.remove();
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
 
-  //add click listener to cardImageElement
-  //open modal w/ previewImageModal -stored outside of function-
+  cardImageElement.addEventListener("click", () => {
+    modalSubtitle.textContent = data.name;
+    modalImage.src = cardImageElement.src;
+    modalImage.alt = cardImageElement.alt;
+
+    toggleImagePreviewModal();
+  });
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_clicked");
