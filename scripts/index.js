@@ -168,8 +168,7 @@ initialCards.forEach((data) => {
 
 closeModalButtons.forEach(function (button) {
   button.addEventListener("click", function () {
-    closeModal(modalAddCard);
-    closeModal(modalProfile);
-    closeModal(modalImagePreview);
+    const modalOpened = document.querySelector(".modal_opened");
+    closeModal(modalOpened);
   });
 });
