@@ -83,19 +83,19 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
 
-function toggleProfileModal() {
+function openProfileModal() {
   inputName.value = profileName.textContent;
   inputDescription.value = profileDescription.textContent;
   openModal(modalProfile);
 }
 
-function toggleAddModal() {
+function openAddModal() {
   inputCardTitle.value = "";
   inputCardLink.value = "";
   openModal(modalAddCard);
 }
 
-function toggleImagePreviewModal() {
+function openImagePreviewModal() {
   openModal(modalImagePreview);
 }
 
@@ -137,7 +137,7 @@ function getCardElement(data) {
     modalImg.src = cardImageElement.src;
     modalImg.alt = cardImageElement.alt;
 
-    toggleImagePreviewModal();
+    openImagePreviewModal();
   });
 
   likeButton.addEventListener("click", () => {
@@ -154,9 +154,9 @@ function getCardElement(data) {
 /*                                    Event Listeners                                            */
 /* --------------------------------------------------------------------------------------------- */
 
-editProfileButton.addEventListener("click", toggleProfileModal);
+editProfileButton.addEventListener("click", openProfileModal);
 
-addCardButton.addEventListener("click", toggleAddModal);
+addCardButton.addEventListener("click", openAddModal);
 
 profileForm.addEventListener("submit", handleProfileModalSubmit);
 
@@ -168,6 +168,8 @@ initialCards.forEach((data) => {
 
 closeModalButtons.forEach(function (button) {
   button.addEventListener("click", function () {
-    button.closest(".modal").classList.remove("modal_opened");
+    closeModal(modalAddCard);
+    closeModal(modalProfile);
+    closeModal(modalImagePreview);
   });
 });
