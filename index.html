@@ -70,8 +70,11 @@
                   class="modal__input modal__input_type_name"
                   id="name"
                   placeholder="Name"
+                  minlength="2"
+                  maxlength="40"
                   required
                 />
+                <span class="modal__error"></span>
               </label>
               <label for="description" class="modal__label">
                 <input
@@ -80,7 +83,11 @@
                   class="modal__input modal__input_type_description"
                   id="description"
                   placeholder="Description"
+                  minlength="2"
+                  maxlength="200"
+                  required
                 />
+                <span class="modal__error"></span>
               </label>
               <button
                 class="modal__save-button"
@@ -112,8 +119,11 @@
                   class="modal__input modal__input_type_title"
                   id="title"
                   placeholder="Title"
+                  minlength="1"
+                  maxlength="30"
                   required
                 />
+                <span class="modal__error"></span>
               </label>
               <label for="image-link" class="modal__label">
                 <input
@@ -124,6 +134,7 @@
                   placeholder="Image link"
                   required
                 />
+                <span class="modal__error"></span>
               </label>
               <button
                 class="modal__save-button"
