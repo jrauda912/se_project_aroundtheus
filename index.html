@@ -74,7 +74,7 @@
                   maxlength="40"
                   required
                 />
-                <span class="modal__error"></span>
+                <span class="modal__error" id="name-error"></span>
               </label>
               <label for="description" class="modal__label">
                 <input
@@ -87,7 +87,7 @@
                   maxlength="200"
                   required
                 />
-                <span class="modal__error"></span>
+                <span class="modal__error" id="description-error"></span>
               </label>
               <button
                 class="modal__save-button"
@@ -123,7 +123,7 @@
                   maxlength="30"
                   required
                 />
-                <span class="modal__error"></span>
+                <span class="modal__error" id="title-error"></span>
               </label>
               <label for="image-link" class="modal__label">
                 <input
@@ -134,12 +134,13 @@
                   placeholder="Image link"
                   required
                 />
-                <span class="modal__error"></span>
+                <span class="modal__error" id="image-link-error"></span>
               </label>
               <button
-                class="modal__save-button"
+                class="modal__save-button modal__save-button_disabled"
                 type="submit"
                 aria-label="Create Card"
+                disabled
               >
                 Create
               </button>

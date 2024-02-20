@@ -134,7 +134,7 @@
   color: #f00;
   opacity: 0;
   position: relative;
-  top: 5px;
+  /* top: 5px; */
 }
 
 .modal__error_visible {

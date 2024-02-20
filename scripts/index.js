@@ -75,12 +75,34 @@ const cardGallery = document.querySelector(".gallery__cards");
 /*                                      Functions                                                */
 /* --------------------------------------------------------------------------------------------- */
 
+function enableCloseModalEsc() {
+  modals.forEach((modal) => {
+    modal.addEventListener("keydown", (evt) => {
+      if (evt.key === "Escape") {
+        closeModal(modal);
+      }
+    });
+  });
+}
+
+function enableCloseModalClick() {
+  modals.forEach((modal) => {
+    modal.addEventListener("click", (e) => {
+      closeModal(e.target);
+    });
+  });
+}
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  modal.addEventListener("keydown", enableCloseModalEsc);
+  modal.addEventListener("keydown", enableCloseModalClick);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  modal.removeEventListener("keydown", enableCloseModalEsc);
+  modal.removeEventListener("keydown", enableCloseModalClick);
 }
 
 function openProfileModal() {
