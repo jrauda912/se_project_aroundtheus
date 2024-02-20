@@ -80,6 +80,7 @@ function enableCloseModalEsc() {
     modal.addEventListener("keydown", (evt) => {
       if (evt.key === "Escape") {
         closeModal(modal);
+        console.log("escape hit");
       }
     });
   });
@@ -89,20 +90,21 @@ function enableCloseModalClick() {
   modals.forEach((modal) => {
     modal.addEventListener("click", (e) => {
       closeModal(e.target);
+      console.log("clicked");
     });
   });
 }
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  modal.addEventListener("keydown", enableCloseModalEsc);
-  modal.addEventListener("keydown", enableCloseModalClick);
+  enableCloseModalEsc();
+  enableCloseModalClick();
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   modal.removeEventListener("keydown", enableCloseModalEsc);
-  modal.removeEventListener("keydown", enableCloseModalClick);
+  modal.removeEventListener("click", enableCloseModalClick);
 }
 
 function openProfileModal() {
