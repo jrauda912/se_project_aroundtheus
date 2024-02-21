@@ -75,35 +75,29 @@ const cardGallery = document.querySelector(".gallery__cards");
 /*                                      Functions                                                */
 /* --------------------------------------------------------------------------------------------- */
 
-function enableCloseModalEsc() {
-  modals.forEach((modal) => {
-    modal.addEventListener("keydown", (evt) => {
-      if (evt.key === "Escape") {
-        closeModal(modal);
-        console.log("escape hit");
-      }
-    });
-  });
+function enableCloseModalEsc(evt) {
+  if (evt.key === "Escape") {
+    const modalOpened = document.querySelector(".modal_opened");
+    closeModal(modalOpened);
+  }
 }
 
-function enableCloseModalClick() {
-  modals.forEach((modal) => {
-    modal.addEventListener("click", (e) => {
-      closeModal(e.target);
-      console.log("clicked");
-    });
-  });
+function enableCloseModalClick(evt) {
+  if (evt) {
+    const modalOpened = document.querySelector(".modal_opened");
+    closeModal(modalOpened);
+  }
 }
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  enableCloseModalEsc();
-  enableCloseModalClick();
+  document.addEventListener("keydown", enableCloseModalEsc);
+  modal.addEventListener("click", enableCloseModalClick);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  modal.removeEventListener("keydown", enableCloseModalEsc);
+  document.removeEventListener("keydown", enableCloseModalEsc);
   modal.removeEventListener("click", enableCloseModalClick);
 }
 

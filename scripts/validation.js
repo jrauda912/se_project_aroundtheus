@@ -31,10 +31,9 @@ function enableButton(submitButton, { inactiveButtonClass }) {
 function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
   if (hasInvalidInput(inputEls)) {
     disableButton(submitButton, { inactiveButtonClass });
-    return;
+  } else {
+    enableButton(submitButton, { inactiveButtonClass });
   }
-
-  enableButton(submitButton, { inactiveButtonClass });
 }
 
 function checkInputValidity(formEl, inputEl, config) {
