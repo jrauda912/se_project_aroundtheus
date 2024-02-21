@@ -127,7 +127,7 @@
 
 .modal__save-button_disabled:hover {
   cursor: default;
-  opacity: 0.2;
+  opacity: 1;
 }
 
 .modal__error {
